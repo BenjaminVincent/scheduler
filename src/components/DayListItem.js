@@ -1,10 +1,20 @@
 import React from "react";
+import "./DayListItem.scss";
+import classNames from "classnames";
+
+
 
 export default function DayListItem(props) {
+
+  //boolean checks
+  const dayClass = classNames('day-list__item', {
+    'day-list__item--selected': props.selected,
+    'day-list__item--full': props.spots === 0,
+  });
   return (
-    <li onClick={() => props.setDay(props.name)}>
-      <h2 className="text--regular">{day.name}</h2>
-      <h3 className="text--light">{day.spots}</h3>
+    <li className={dayClass} onClick={() => props.setDay(props.name)}>
+      <h2 className="text--regular">{props.name}</h2>
+      <h3 className="text--light">{props.spots}</h3>
     </li>
   );
 }
