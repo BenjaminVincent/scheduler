@@ -176,7 +176,7 @@ storiesOf("DayListItem", module)
           onClose={action("onClose")}/>)
         .add("Edit", () =>
         <Form
-          name="its Me mike"
+          name={interviewer.name}
           interviewers={interviewers}
           interviewer="1"
           onSave={action("onSave")}
