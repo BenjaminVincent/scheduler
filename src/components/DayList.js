@@ -5,7 +5,6 @@ import DayListItem from "./DayListItem";
 
 
 export default function DayList(props) {
-  // deconstructs and grabs values!
   const {days, setDay} = props;
   return (
     <ul> 
