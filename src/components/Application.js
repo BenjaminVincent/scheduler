@@ -24,7 +24,6 @@ const days = [
 
 export default function Application(props) {
   const [day, setDay] = useState("Monday");
-  console.log("DAY: ", day);
   return (
     <main className="layout">
       <section className="sidebar">

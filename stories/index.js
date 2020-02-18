@@ -15,7 +15,9 @@ import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
-
+import Status from "components/Appointment/Status";
+import Error from "components/Appointment/Error";
+import Form from "components/Appointment/Form";
 
 storiesOf("Button", module)
   .addParameters({
@@ -158,3 +160,17 @@ storiesOf("DayListItem", module)
           message="Delete the appointment?" 
           onConfirm={action("onConfirm")}
           onCancel={action("onCancel")}/>)
+        .add("Deleting", () => 
+          <Status
+          message="Deleting"/>)
+        .add("Saving", () => 
+          <Status
+          message="Saving"/>)
+        .add("Error deleing", () =>
+        <Error
+        message="Could Not delete appointment."
+        onClose={action("onClose")}/>)
+        .add("Error saving", () =>
+        <Error
+        message="Could Not save appointment."
+        onClose={action("onClose")}/>)
