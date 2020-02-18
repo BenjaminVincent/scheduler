@@ -5,7 +5,7 @@ import InterviewerListItem from "./InterviewerListItem";
 
 
 export default function InterviewerList(props) {
-  const {interviewers, interviewer, setInterviewer} = props;
+  const {interviewers} = props;
 
   return (
     <section className="interviewers">
