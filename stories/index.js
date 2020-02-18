@@ -161,16 +161,29 @@ storiesOf("DayListItem", module)
           onConfirm={action("onConfirm")}
           onCancel={action("onCancel")}/>)
         .add("Deleting", () => 
-          <Status
+        <Status
           message="Deleting"/>)
         .add("Saving", () => 
-          <Status
+        <Status
           message="Saving"/>)
         .add("Error deleing", () =>
         <Error
-        message="Could Not delete appointment."
-        onClose={action("onClose")}/>)
+          message="Could Not delete appointment."
+          onClose={action("onClose")}/>)
         .add("Error saving", () =>
         <Error
-        message="Could Not save appointment."
-        onClose={action("onClose")}/>)
+          message="Could Not save appointment."
+          onClose={action("onClose")}/>)
+        .add("Edit", () =>
+        <Form
+          name="its Me mike"
+          interviewers={interviewers}
+          interviewer="1"
+          onSave={action("onSave")}
+          onCancel={action("onCancel")}/>)
+        .add("Create", () =>
+        <Form
+          interviewers={interviewers}
+          onSave={action("onSave")}
+          onCancel={action("onCancel")}/>
+        )

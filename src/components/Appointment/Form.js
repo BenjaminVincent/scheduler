@@ -4,6 +4,7 @@ import InterviewerList from "../InterviewerList";
 
 
 export default function Form(props) {
+  const [] = useState(0);
   return (
   <main className="appointment__card appointment__card--create">
     <section className="appointment__card-left">
@@ -22,8 +23,8 @@ export default function Form(props) {
     </section>
     <section className="appointment__card-right">
       <section className="appointment__actions">
-        <Button danger>Cancel</Button>
-        <Button confirm>Save</Button>
+        <Button danger onClick={props.onCancel}>Cancel</Button>
+        <Button confirm onClick={props.onSave}>Save</Button>
       </section>
     </section>
   </main>
