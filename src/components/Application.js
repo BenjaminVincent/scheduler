@@ -7,14 +7,6 @@ import { getAppointmentsForDay, getInterview } from "../helpers/selectors.js";
 
 
 export default function Application(props) {
-  // const [day, setDay] = useState("Monday");
-  // const [days, setDays] = useState([]);
-
-  // const setDays = days =>
-//   setState(prev => ({
-//     ...prev,
-//     days
-//   }));
 
   const [state, setState] = useState({
     day: "Monday",
@@ -43,14 +35,13 @@ export default function Application(props) {
 
 
   useEffect(() => {
-    // update to set promises
+    // updated to set promises retreive from /api's
     const getDays = axios.get('api/days');
     const getAppointments = axios.get('api/appointments');
     const getInterviewers = axios.get('api/interviewers');
 
     Promise.all([getDays, getAppointments, getInterviewers])
     .then(values => {
-      console.log(values);
       setState(data => ({
         days: values[0].data,
         appointments: values[1].data,
