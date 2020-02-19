@@ -42,7 +42,7 @@ export default function Application(props) {
 
     Promise.all([getDays, getAppointments, getInterviewers])
     .then(values => {
-      setState(data => ({
+      setState(() => ({
         days: values[0].data,
         appointments: values[1].data,
         interviewers: values[2].data

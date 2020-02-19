@@ -23,10 +23,10 @@ export function getInterview(state, interview) {
   if (!interview) {
     return null;
   }
-  return ( { 
+  return { 
     student: interview.student,
     interviewer: state.interviewers[interview.interviewer]
-  });
+  };
 }
 
 
