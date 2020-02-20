@@ -11,14 +11,17 @@ export default function Form(props) {
     setName('');
     setInterviewer(null);
   }
+  
   function cancel() {
     reset();
     props.onCancel();
   }
+
   function save() {
     reset();
     props.onSave(name, interviewer);
   };
+
   return (
   <main className="appointment__card appointment__card--create">
     <section className="appointment__card-left">
