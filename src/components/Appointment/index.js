@@ -4,7 +4,8 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
-import { action } from "@storybook/addon-actions";
+import axios from "axios";
+// import { action } from "@storybook/addon-actions";
 import { useVisualMode } from "../../hooks/useVisualMode";
 
 const EMPTY = "EMPTY";
@@ -22,16 +23,23 @@ export default function Appointment(props) {
       transition(CREATE);
     };
 
-    function save(name, interviewer) {
+    function onSave(name, interviewer) {
 
       const interview = {
         student: name,
         interviewer
       };
-      props.bookInterview(name, interview)
+      props.bookInterview(props.id, interview)
+
+
+      axios
+      .put(`/api/appointments/${props.id}`, {
+        interview
+      })
+      .then((response) => transition(SHOW))
+      .catch(error => console.log(error.response.status));
     }
   
-
     function onCancel() {
       back();
     };
@@ -49,7 +57,7 @@ export default function Appointment(props) {
         {mode === CREATE && (
         <Form
           interviewers={props.interviewers}
-          onSave={save}
+          onSave={onSave}
           onCancel={onCancel}
         />
         )}

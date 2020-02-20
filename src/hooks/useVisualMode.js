@@ -3,11 +3,8 @@ import { useState } from "react";
 export function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
-  
-
 
   function transition(newMode, replace = false) {
-    
     if (replace) {
       setMode(history[history.length-1] = newMode);
     } else {
@@ -25,10 +22,7 @@ export function useVisualMode(initial) {
     setMode(removeLast[removeLast.length-1]);
     }
   }
-
   return { mode, transition, back };
-
-
 };
 
 
