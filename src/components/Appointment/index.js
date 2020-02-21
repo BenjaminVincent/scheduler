@@ -6,11 +6,13 @@ import Empty from "./Empty";
 import Form from "./Form";
 import Status from "./Status";
 import Confirm from "./Confirm";
+import Error from "./Error";
 import axios from "axios";
 
 // import { action } from "@storybook/addon-actions";
 import { useVisualMode } from "../../hooks/useVisualMode";
 
+// States
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
@@ -18,6 +20,8 @@ const SAVING = "SAVING";
 const DELETING = "DELETING";
 const CONFIRM = "CONFIRM";
 const EDIT = "EDIT";
+const ERROR_SAVE = "ERROR_SAVE";
+const ERROR_DELETE = "ERROR_DELETE";
 
 
 export default function Appointment(props) {
@@ -44,7 +48,7 @@ export default function Appointment(props) {
         interview
       })
       .then((response) => transition(SHOW))
-      .catch(error => console.log(error.response.status));
+      .catch(error => transition(ERROR_SAVE, true));
   }
 
   function onEdit() {
@@ -56,14 +60,14 @@ export default function Appointment(props) {
   }
 
   function onDelete(interview) {
-    transition(DELETING);
+    transition(DELETING, true);
     axios
 
       .delete(`/api/appointments/${props.id}`, {
         interview
       })
       .then((response) => transition(EMPTY))
-      .catch(error => console.log(error.response.status));
+      .catch(error => transition(ERROR_DELETE, true));
   };
 
   function onCancel() {
@@ -76,6 +80,8 @@ export default function Appointment(props) {
       {mode === EMPTY && <Empty onAdd={onAdd} />}
       {mode === SAVING && <Status message="Saving" />}
       {mode === DELETING && <Status message="Deleting" />}
+      {mode === ERROR_SAVE && <Error message = "Could Not save appointment." onClose={onCancel}/>}
+      {mode === ERROR_DELETE && <Error message = "Could Not delete appointment." onClose={onCancel}/>}
       {mode === CONFIRM && (
         <Confirm
           message="Are you sure you would like to delete your appointment?"
