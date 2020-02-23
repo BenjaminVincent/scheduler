@@ -41,6 +41,7 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
+    
     props.bookInterview(props.id, interview);
 
     axios
@@ -84,7 +85,7 @@ export default function Appointment(props) {
       {mode === ERROR_DELETE && <Error message = "Could Not delete appointment." onClose={onCancel}/>}
       {mode === CONFIRM && (
         <Confirm
-          message="Are you sure you would like to delete your appointment?"
+          message="Are you sure you would like to delete this appointment?"
           onCancel={onCancel}
           onConfirm={onDelete} />)}
       {mode === SHOW && (
