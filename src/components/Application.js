@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment"
@@ -8,9 +7,9 @@ import useApplicationData from "hooks/useApplicationData";
 
 
 export default function Application(props) {
+  // Still need to find cancel interview and descon here
+  const { state, setDay, bookInterview, cancelInterview } = useApplicationData();
 
-  const { state, setDay, bookInterview } = useApplicationData();
-  
   const app = getAppointmentsForDay(state, state.day).map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     const interviewers = getInterviewerForDay(state, state.day);
@@ -21,6 +20,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
         key={appointment.id}
          />
     );

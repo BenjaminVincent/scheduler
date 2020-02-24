@@ -7,7 +7,6 @@ import Form from "./Form";
 import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
-import axios from "axios";
 
 // import { action } from "@storybook/addon-actions";
 import { useVisualMode } from "../../hooks/useVisualMode";
@@ -41,15 +40,10 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-    
-    props.bookInterview(props.id, interview);
 
-    axios
-      .put(`/api/appointments/${props.id}`, {
-        interview
-      })
-      .then((response) => transition(SHOW))
-      .catch(error => transition(ERROR_SAVE, true));
+    props.bookInterview(props.id, interview)
+    .then((response) => transition(SHOW))
+    .catch(error => transition(ERROR_SAVE, true));
   }
 
   function onEdit() {
@@ -62,13 +56,9 @@ export default function Appointment(props) {
 
   function onDelete(interview) {
     transition(DELETING, true);
-    axios
-
-      .delete(`/api/appointments/${props.id}`, {
-        interview
-      })
-      .then((response) => transition(EMPTY))
-      .catch(error => transition(ERROR_DELETE, true));
+    props.cancelInterview(interview, props.id)
+    .then((response) => transition(EMPTY))
+    .catch(error => transition(ERROR_DELETE, true));
   };
 
   function onCancel() {
