@@ -3,7 +3,6 @@ import axios from "axios";
 
 
 // Action types
-
 const SET_DAY = 'SET_DAY';
 const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA';
 const SET_INTERVIEW = 'SET_INTERVIEW';
@@ -32,20 +31,19 @@ function reducer(state, action) {
       );
   }
 };
+
 export default function useApplicationData () {
 
   const [state, dispatch] = useReducer(reducer, { day: 'Monday', days: [], appointments: {}, interview: {} })
 
   const setDay = day => dispatch({ type: SET_DAY, value: { day }})
-  // GO ----------------------------------------------------
-  const bookInterview = (id, interview) => {
 
+  const bookInterview = (id, interview) => {
     return axios
     .put(`/api/appointments/${id}`, {
       interview
     })
     .then(() =>  dispatch({type: SET_INTERVIEW, value: { id, interview }}));
-
   }
 
   function cancelInterview(interview, id) {
@@ -80,11 +78,3 @@ export default function useApplicationData () {
 
   return {state, setDay, bookInterview, cancelInterview};
 };
-
-
-// setState(() => ({
-//   ...state, 
-//   days: values[0].data,
-//   appointments: values[1].data,
-//   interviewers: values[2].data
-// }));
