@@ -8,15 +8,6 @@ const SET_DAY = 'SET_DAY';
 const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA';
 const SET_INTERVIEW = 'SET_INTERVIEW';
 
-// for days
-const DAYLIST = {
-  'Monday': 0,
-  'Tuesday': 1,
-  'Wednesday': 2,
-  'Thursday': 3,
-  'Friday': 4
-};
-
 function reducer(state, action) {
   switch (action.type) {
     case SET_DAY:
@@ -35,11 +26,6 @@ function reducer(state, action) {
       };
       let updateModifier = (action.value.onUpdate === 'add' ? 1 : -1 ) 
       let remaining = getSpotsForDay(state, state.day).length + updateModifier;
-
-      const dayPos = DAYLIST[state.day];
-      console.log("state:", state);
-      console.log("dayPos:", dayPos);
-      console.log(state.days);
       
       const updateReamining = [...state.days].map(update => {
         if (update.name === state.day) {
