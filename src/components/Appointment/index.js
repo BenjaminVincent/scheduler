@@ -7,8 +7,6 @@ import Form from "./Form";
 import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
-
-// import { action } from "@storybook/addon-actions";
 import { useVisualMode } from "../../hooks/useVisualMode";
 
 // States
@@ -44,7 +42,7 @@ export default function Appointment(props) {
     props.bookInterview(props.id, interview)
     .then((response) => transition(SHOW))
     .catch(error => transition(ERROR_SAVE, true));
-  }
+  };
 
   function onEdit() {
     transition(EDIT);
@@ -52,7 +50,7 @@ export default function Appointment(props) {
 
   function waitForConfirm() {
     transition(CONFIRM);
-  }
+  };
 
   function onDelete(interview) {
     transition(DELETING, true);

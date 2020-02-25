@@ -18,6 +18,10 @@ export function getAppointmentsForDay (state, day) {
   return fetchedApp;
 }
 
+// remaining will contain only the appointments where interview is null
+export function getSpotsForDay (state, day) {
+  return getAppointmentsForDay(state, day).filter(a => a.interview === null);;
+};
 
 
 export function getInterviewerForDay (state, day) {

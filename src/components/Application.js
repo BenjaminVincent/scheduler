@@ -7,7 +7,7 @@ import useApplicationData from "hooks/useApplicationData";
 
 
 export default function Application(props) {
-  // Still need to find cancel interview and descon here
+
   const { state, setDay, bookInterview, cancelInterview } = useApplicationData();
 
   const app = getAppointmentsForDay(state, state.day).map((appointment) => {
