@@ -64,13 +64,13 @@ export default function Appointment(props) {
   };
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={onAdd} />}
       {mode === SAVING && <Status message="Saving" />}
       {mode === DELETING && <Status message="Deleting" />}
-      {mode === ERROR_SAVE && <Error message = "Could Not save appointment." onClose={onCancel}/>}
-      {mode === ERROR_DELETE && <Error message = "Could Not delete appointment." onClose={onCancel}/>}
+      {mode === ERROR_SAVE && <Error message = "Could not save appointment." onClose={onCancel}/>}
+      {mode === ERROR_DELETE && <Error message = "Could not delete appointment." onClose={onCancel}/>}
       {mode === CONFIRM && (
         <Confirm
           message="Are you sure you would like to delete this appointment?"
