@@ -24,3 +24,9 @@ npm run storybook
 
 ## Screenshots
 
+
+!["Typical Mondays..."](https://github.com/BenjaminVincent/scheduler/blob/master/docs/scheduler-monday.png?raw=true)
+
+
+!["Responsive view"](https://github.com/BenjaminVincent/scheduler/blob/master/docs/scheduler-thurs-responsive.png?raw=true)
+
