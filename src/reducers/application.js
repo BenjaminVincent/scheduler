@@ -42,7 +42,6 @@ export default function reducer(state, action) {
   }
 };
 
-
 export {
   SET_DAY,
   SET_APPLICATION_DATA,

@@ -3,7 +3,6 @@ import "./DayListItem.scss";
 import DayListItem from "./DayListItem";
 
 
-
 export default function DayList(props) {
   const {days, setDay} = props;
   return (

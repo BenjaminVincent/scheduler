@@ -1,4 +1,3 @@
-
 export function getAppointmentsForDay (state, day) {
   const fetchedApp = [];
   const dayObj = state.days.filter(d => d.name === day)[0];
@@ -23,7 +22,6 @@ export function getSpotsForDay (state, day) {
   return getAppointmentsForDay(state, day).filter(a => a.interview === null);;
 };
 
-
 export function getInterviewerForDay (state, day) {
   const fetchedApp = [];
   const dayObj = state.days.filter(d => d.name === day)[0];
@@ -42,7 +40,6 @@ export function getInterviewerForDay (state, day) {
   }
   return fetchedApp;
 }
-
 
 export function getInterview(state, interview) {
   if (!interview) {

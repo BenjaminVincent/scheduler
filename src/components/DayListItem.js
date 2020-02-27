@@ -3,7 +3,6 @@ import "./DayListItem.scss";
 import classNames from "classnames";
 
 
-
 export default function DayListItem(props) {
 
   //boolean checks
