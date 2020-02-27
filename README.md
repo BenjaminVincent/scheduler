@@ -1,5 +1,9 @@
 # Interview Scheduler
 
+## Info
+
+Scheduler is a full stack web application used for scheduling interviews. This application was built using the react library, PostgreSQL, Jest/Cypress for testing, and Storybook for testing isolated react components.
+
 ## Setup
 
 - axios
@@ -26,6 +30,12 @@ npm test
 
 ```sh
 npm run storybook
+```
+
+## Running Cypress test framework
+
+```sh
+npm run cypress
 ```
 
 ## Screenshots
