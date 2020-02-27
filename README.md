@@ -21,3 +21,6 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Screenshots
+
