@@ -2,7 +2,13 @@
 
 ## Setup
 
-Install dependencies with `npm install`.
+- axios
+- @testing-library/react-hooks
+- react-test-renderer
+
+Use command `npm install` to install all dependencies.
+
+schedular-api: https://github.com/lighthouse-labs/scheduler-api
 
 ## Running Webpack Development Server
 
