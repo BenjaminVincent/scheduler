@@ -27,7 +27,7 @@ export default function Form(props) {
     }
     if (interviewer === null) {
       setError("Please select an interviewer");
-      return
+      return;
     }
     setError("");
     props.onSave(name, interviewer);
