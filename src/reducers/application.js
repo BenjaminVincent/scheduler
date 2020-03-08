@@ -23,8 +23,8 @@ export default function reducer(state, action) {
         [id]: appointment
       };
       
-      let updateModifier = (onUpdate === 'add' ? 1 : onUpdate === 'sub' ? -1 : 0 );
-      let remaining = getSpotsForDay(state, state.day).length + updateModifier;
+      const updateModifier = (onUpdate === 'add' ? 1 : onUpdate === 'sub' ? -1 : 0 );
+      const remaining = getSpotsForDay(state, state.day).length + updateModifier;
 
       const updateReamining = [...state.days].map(update => {
         if (update.name === state.day) {
